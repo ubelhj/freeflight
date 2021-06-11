@@ -152,11 +152,7 @@ void freeflight::onTick() {
 			return;
 		}
 
-		Vector newLoc = car.GetLocation();
-
-		newLoc.X += 400;
-
-		ball.SetLocation(newLoc);
+		ball.SetLocation(car.GetLocation() + RotateVectorWithQuat({ 400, 0, 0 }, RotatorToQuat(car.GetRotation())));
 		
 		if (camera.GetCameraState() == "CameraState_BallCam_TA") {
 			ball.SetVelocity(RotateVectorWithQuat(velocityInput, RotatorToQuat(camera.GetRotation())));
@@ -215,6 +211,8 @@ void freeflight::RenderSettings() {
 	ImGui::TextUnformatted("Throttle down moves your car down");
 
 	ImGui::NewLine();
+
+	ImGui::TextUnformatted("Taking the ball puts it a bit in front of your car no matter its rotation");
 
 	CVarWrapper takeBallCvar = cvarManager->getCvar("flight_take_ball");
 
