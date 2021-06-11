@@ -264,32 +264,4 @@ void freeflight::RenderSettings() {
 	ImGui::Separator();
 
 	ImGui::TextUnformatted("Plugin made by JerryTheBee#1117 - DM me on discord for custom plugin commissions!");
-
-	/*ImGui::TextUnformatted("Press the Set Keybind button below to bind command toggleskipreplay to a key:");
-	if (ImGui::SearchableCombo("##keybind combo", &keyIndex, keys, keyText, hintText, 20))
-		OnBind(keys[keyIndex]);
-
-	ImGui::SameLine();
-	if (ImGui::ButtonEx("Set Keybind", ImVec2(0, 0), ImGuiButtonFlags_AlignTextBaseLine)) {
-		gameWrapper->Execute([this](GameWrapper* gw) {
-			cvarManager->executeCommand("closemenu settings; openmenu skipreplaybind");
-			gameWrapper->HookEventWithCaller<ActorWrapper>("Function TAGame.GameViewportClient_TA.HandleKeyPress", std::bind(&SkipReplay::OnKeyPressed, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
-			});
-	}
-
-	ImGui::SameLine();
-	if (ImGui::ButtonEx("Unbind", ImVec2(0, 0), ImGuiButtonFlags_AlignTextBaseLine)) {
-		if (keyIndex != -1) {
-			keybindCvar->setValue("0");
-			cvarManager->executeCommand("unbind " + keys[keyIndex]);
-			gameWrapper->Toast("SkipReplay", "toggleskipreplay is now unbound!", "skipreplay_logo", 5.0f);
-			keyIndex = -1;
-		}
-	}
-
-	ImGui::TextUnformatted("The toggleskipreplay keybind can be used to disable and enable autoskipping for that rare occasion that you dont want to skip the replay!");
-	ImGui::Separator();
-	ImGui::SetCursorPosY(ImGui::GetWindowSize().y - 65);
-	ImGui::Image(logo->GetImGuiTex(), { logo->GetSizeF().X, logo->GetSizeF().Y });
-	ImGui::TextUnformatted("v1.4 made by Esnar#0600 and Insane#0418");*/
 }
